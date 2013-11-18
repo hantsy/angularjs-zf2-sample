@@ -105,7 +105,7 @@
                     })
                     .error(function(data, status, headers, config) {
                     });
-        }
+		}
     });
 
 }());
