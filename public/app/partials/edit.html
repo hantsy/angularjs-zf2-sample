@@ -1,0 +1,24 @@
+<div ng-controller="EditAlbumCtrl">
+    <form class="form-horizontal">
+        <h1 class="page-header">Edit Album({{album.id}})</h1>
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="title">Title</label>
+                <div class="controls">
+                    <input id="title" type="text" class="input-block-level"
+                           required="true" ng-model="album.title"></input>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="artist">Artist</label>
+                <div class="controls">
+                    <input id="artist" type="text" class="input-block-level" 
+                           ng-model="album.artist" required="true"></input>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-actions">			
+            <button ng-click="updateAlbum()" class="btn btn-primary">Update Album</button>
+        </div>
+    </form>
+</div>

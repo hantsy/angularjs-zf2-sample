@@ -1,0 +1,33 @@
+<div ng-controller="AlbumListCtrl">
+    <h1 class="page-header">Album List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="25px">#ID</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th width="50px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="e in albums">
+                <td>{{e.id}}</td>
+                <td>{{e.title}}</td>
+                <td>{{e.artist}}</td>
+                <td><a ng-click="editAlbum($index)" ><i
+                            class="icon-pencil"></i>
+                    </a>
+                    &nbsp;
+                    <a ng-click="delAlbum($index)" ><i
+                            class="icon-remove-circle"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <button type="button" class="btn btn-success" 
+                ng-click="addAlbum()">
+            <b class="icon-plus-sign"></b>Add Album
+        </button>
+    </p>
+</div>
