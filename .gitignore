@@ -17,3 +17,4 @@ vendor/ZF2
 vendor/zftool
 vendor/.gitignore
 vendor/autoload.php
+/vendor/doctrine

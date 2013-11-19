@@ -28,4 +28,18 @@ return array(
             'ViewJsonStrategy',
         ),
     ),
+    'doctrine' => array(
+        'driver' => array(
+            'album_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/Album/Model')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Album\Model' => 'album_entities'
+                )
+            )
+        )
+    )
 );

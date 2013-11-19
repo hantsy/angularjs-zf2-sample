@@ -2,7 +2,6 @@
 
 namespace Album\Controller;
 
-use Album\Form\AlbumForm;
 use Album\Model\Album;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
@@ -10,76 +9,76 @@ use Zend\View\Model\JsonModel;
 class AlbumController extends AbstractRestfulController {
 
     public function getList() {
-        $results = $this->getAlbumTable()->fetchAll();
-        $data = array();
-        foreach ($results as $result) {
-            $data[] = $result;
-        }
+        $em = $this
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
 
+        $results= $em->createQuery('select a from Album\Model\Album as a')->getArrayResult();
+
+       
         return new JsonModel(array(
-            'data' => $data)
+            'data' => $results)
         );
     }
 
     public function get($id) {
-        $album = $this->getAlbumTable()->getAlbum($id);
-        return new JsonModel(array("data" => $album));
+        $em = $this
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
+
+        $album = $em->find('Album\Model\Album', $id);
+        
+//        print_r($album->toArray());
+//        
+        return new JsonModel(array("data" => $album->toArray()));
     }
 
     public function create($data) {
-        
-        $data['id']=0;
-        $form = new AlbumForm();
-        $album = new Album();
-        $form->setInputFilter($album->getInputFilter());
-        $form->setData($data);
+        $em = $this
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
 
-        $id=0;
-        if ($form->isValid()) {
-            $album->exchangeArray($form->getData());
-            $id = $this->getAlbumTable()->saveAlbum($album);
-        }else {           
-          print_r(  $form->getMessages());
-        }
+        $album = new Album();
+        $album->setArtist($data['artist']);
+        $album->setTitle($data['title']);
+
+        $em->persist($album);
+        $em->flush();
 
         return new JsonModel(array(
-            'data' => $id,
+            'data' => $album->getId(),
         ));
     }
 
     public function update($id, $data) {
-        $data['id'] = $id;
-        $album = $this->getAlbumTable()->getAlbum($id);
-        $form = new AlbumForm();
-        $form->bind($album);
-        $form->setInputFilter($album->getInputFilter());
-        $form->setData($data);
-        
-        if ($form->isValid()) {
-            $id = $this->getAlbumTable()->saveAlbum($form->getData());
-        }
+        $em = $this
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
+
+        $album = $em->find('Album\Model\Album', $id);
+        $album->setArtist($data['artist']);
+        $album->setTitle($data['title']);
+
+        $album = $em->merge($album);
+        $em->flush();
 
         return new JsonModel(array(
-            'data' => $id,
+            'data' => $album->getId(),
         ));
     }
 
     public function delete($id) {
-        $this->getAlbumTable()->deleteAlbum($id);
+        $em = $this
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
+
+        $album = $em->find('Album\Model\Album', $id);
+        $em->remove($album);
+        $em->flush();
 
         return new JsonModel(array(
             'data' => 'deleted',
         ));
-    }
-
-    protected $albumTable;
-
-    public function getAlbumTable() {
-        if (!$this->albumTable) {
-            $sm = $this->getServiceLocator();
-            $this->albumTable = $sm->get('Album\Model\AlbumTable');
-        }
-        return $this->albumTable;
     }
 
 }
