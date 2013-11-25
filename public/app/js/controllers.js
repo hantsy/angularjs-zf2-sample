@@ -107,5 +107,20 @@
                     });
 		}
     });
+    
+    as.controller('AlbumCtrl', function($scope, $rootScope, $http, $routeParams, $location) {
+        $scope.album = {};
+        
+        var load = function() {
+            console.log('call load()...');
+            $http.get($rootScope.appUrl + '/albums/' + $routeParams['id'])
+                    .success(function(data, status, headers, config) {
+                        $scope.album = data;
+                        angular.copy($scope.album, $scope.copy);
+                    });
+        };
+
+        load();  
+    });
 
 }());

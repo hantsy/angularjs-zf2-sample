@@ -13,7 +13,7 @@ class AlbumController extends AbstractRestfulController {
                 ->getServiceLocator()
                 ->get('Doctrine\ORM\EntityManager');
 
-        $results= $em->createQuery('select a from Album\Model\Album as a')->getArrayResult();
+        $results= $em->createQuery('select a, u from Album\Model\Album a join a.artists u')->getArrayResult();
 
        
         return new JsonModel(array(
@@ -28,9 +28,13 @@ class AlbumController extends AbstractRestfulController {
 
         $album = $em->find('Album\Model\Album', $id);
         
-//        print_r($album->toArray());
-//        
-        return new JsonModel(array("data" => $album->toArray()));
+        $results= $em->createQuery('select a, u, s from Album\Model\Album a join a.artists u join a.songs s where a.id=:id')
+                ->setParameter("id", $id)
+                ->getArrayResult();
+
+        //print_r($results);
+        
+        return new JsonModel($results[0]);
     }
 
     public function create($data) {

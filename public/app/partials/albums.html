@@ -12,8 +12,8 @@
         <tbody>
             <tr ng-repeat="e in albums">
                 <td>{{e.id}}</td>
-                <td>{{e.title}}</td>
-                <td>{{e.artist}}</td>
+                <td><a href="#/album/{{e.id}}">{{e.title}}</a></td>
+                <td><span ng-repeat="u in e.artists">{{u.name}}</span></td>
                 <td><a ng-click="editAlbum($index)" ><i
                             class="icon-pencil"></i>
                     </a>

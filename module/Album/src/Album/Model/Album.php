@@ -21,7 +21,7 @@ class Album {
     private $title;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Artist", inversedBy="albums")
+     * @ORM\ManyToMany(targetEntity="Artist", inversedBy="albums", fetch="EAGER")
      * @ORM\JoinTable(name="albums_artists",
      *      joinColumns={@ORM\JoinColumn(name="album_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="artist_id", referencedColumnName="id")}

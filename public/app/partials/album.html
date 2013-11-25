@@ -1,0 +1,32 @@
+<div ng-controller="AlbumCtrl">
+
+    <div class="row-fluid">
+        <div class="span3">
+            <img src="../../app/img/holder.png" width="128" height="128">
+        </div>
+        <span class="span9">
+            <h2>{{album.title}}</h2>
+            <p>{{album.songs.length}} SONGS, <span ng-repeat="u in album.artists">{{u.name}}</span></p>
+        </span>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th width="50px">DURATION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="e in album.songs">
+                <td>{{e.name}}</td>
+                <td>{{e.duration}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="#/albums" class="btn btn-success">
+            <b class="icon-home"></b>Back to Album List
+        </a>
+    </p>
+</div>

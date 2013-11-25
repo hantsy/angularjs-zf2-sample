@@ -14,6 +14,7 @@
                 .when('/albums', {templateUrl: 'partials/albums.html', controller: 'AlbumListCtrl'})
                 .when('/new', {templateUrl: 'partials/new.html', controller: 'NewAlbumCtrl'})
                 .when('/edit/:id', {templateUrl: 'partials/edit.html', controller: 'EditAlbumCtrl'})
+                .when('/album/:id', {templateUrl: 'partials/album.html', controller: 'AlbumCtrl'})
                 .otherwise({redirectTo: '/'});
 //        $httpProvider.defaults.useXDomain = true;
 //        delete $httpProvider.defaults.headers.common["X-Requested-With"];

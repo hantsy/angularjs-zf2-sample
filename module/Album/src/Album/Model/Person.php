@@ -1,13 +1,22 @@
 <?php
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 namespace Album\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="person_type", type="string")
+ * @ORM\DiscriminatorMap({"A"="Artist", "P"="Person"})
  */
-class Song {
+class Person {
 
     /**
      * @ORM\Id
@@ -18,14 +27,6 @@ class Song {
 
     /** @ORM\Column(type="string") */
     private $name;
-    
-     /** @ORM\Column(type="string") */
-    private $duration;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Album", inversedBy="songs")
-     * @ORM\JoinColumn(name="album_id") */
-    private $album;
 
     public function getId() {
         return $this->id;
@@ -42,22 +43,5 @@ class Song {
     public function setName($name) {
         $this->name = $name;
     }
-    
-    public function getAlbum() {
-        return $this->album;
-    }
-
-    public function setAlbum($album) {
-        $this->album = $album;
-    }
-
-    public function getDuration() {
-        return $this->duration;
-    }
-
-    public function setDuration($duration) {
-        $this->duration = $duration;
-    }
-
 
 }
