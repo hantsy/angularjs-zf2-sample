@@ -1,5 +1,4 @@
 <?php
-
 namespace Album\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -8,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class Album {
-
+class Album
+{
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -17,7 +16,9 @@ class Album {
      */
     private $id;
 
-    /** @ORM\Column(type="string") */
+    /** 
+     * @ORM\Column(type="string") 
+     */
     private $title;
 
     /**
@@ -39,62 +40,75 @@ class Album {
      */
     private $tags;
 
-    public function __construct() {
+    public function __construct() 
+    {
         $this->songs = new ArrayCollection();
         $this->artists = new ArrayCollection();
         $this->tags = new ArrayCollection();
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = $title;
     }
 
-    public function getArtists() {
+    public function getArtists()
+    {
         return $this->artists;
     }
 
-    public function setArtists($artists) {
+    public function setArtists($artists)
+    {
         $this->artists = $artists;
     }
 
-    public function getSongs() {
+    public function getSongs()
+    {
         return $this->songs;
     }
 
-    public function setSongs($songs) {
+    public function setSongs($songs)
+    {
         $this->songs = $songs;
     }
 
-    public function getTags() {
+    public function getTags()
+    {
         return $this->tags;
     }
 
-    public function setTags($tags) {
+    public function setTags($tags)
+    {
         $this->tags = $tags;
     }
-    
-    public function addTag($tag){
-        $this->tags[]=$tag;
+
+    public function addTag($tag)
+    {
+        $this->tags[] = $tag;
     }
-    
-    public function removeTag($tag){
+
+    public function removeTag($tag)
+    {
         $this->tags->removeElement($tag);
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         return get_object_vars($this);
     }
-
 }
