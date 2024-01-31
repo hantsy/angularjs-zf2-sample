@@ -1,0 +1,128 @@
+repo_name: hantsy/angularjs-zf2-sample
+report_id: 8d02ba77e7c73a46e691b76687f4bccb
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-31T08:29:07+00:00'
+requested_by: hantsy
+provider: github
+branch: master
+detected_tools_count: 10
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample
+  detection_source: Repo Metadata
+- name: PHP
+  description: A popular general-purpose scripting language that is especially suited
+    to web development
+  website_url: http://www.php.net/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample
+  detection_source: Repo Metadata
+- name: PHPUnit
+  description: Testing framework for PHP
+  website_url: https://phpunit.de/
+  version: '3.7'
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/1616/1_WsEnddd5Y4EgEHsT054kUQ.jpeg
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: hantsy
+  last_updated_on: 2013-11-18 11:23:36.000000000 Z
+- name: doctrine/doctrine-orm-module
+  description: Laminas Module that provides Doctrine ORM functionality
+  package_url: https://packagist.org/doctrine/doctrine-orm-module
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: hantsy
+  last_updated_on: 2013-11-19 08:03:29.000000000 Z
+- name: phpunit/phpunit
+  description: The PHP Unit Testing framework
+  package_url: https://packagist.org/phpunit/phpunit
+  version: '3.7'
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: hantsy
+  last_updated_on: 2013-11-18 11:23:36.000000000 Z
+- name: zendframework/zend-developer-tools
+  description: Module for developer and debug tools for use with zend-mvc applications
+  package_url: https://packagist.org/zendframework/zend-developer-tools
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: hantsy
+  last_updated_on: 2013-11-19 08:03:29.000000000 Z
+- name: zendframework/zendframework
+  description: Zend Framework 2
+  package_url: https://packagist.org/zendframework/zendframework
+  version: '2.2'
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: hantsy
+  last_updated_on: 2013-11-19 08:03:29.000000000 Z
+- name: zendframework/zftool
+  description: Utility module for Zend Framework 2 applications
+  package_url: https://packagist.org/zendframework/zftool
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/packagist/image.png
+  detection_source_url: https://github.com/hantsy/angularjs-zf2-sample/blob/master/composer.json
+  detection_source: composer.json
+  last_updated_by: hantsy
+  last_updated_on: 2013-11-19 08:03:29.000000000 Z
